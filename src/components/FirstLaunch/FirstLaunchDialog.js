@@ -11,15 +11,10 @@ import {
 import React from 'react'
 import styles from './FirstLaunchDialog.module.css'
 
-export const FirstLaunchDialog = () => {
+export const FirstLaunchDialog = ({ handleSave }) => {
     const { baseUrl } = useConfig()
     const path = '/dhis-web-commons-about/redirect.action'
     const initialUrl = `${baseUrl}${path}`
-
-    // TODO: change to real working function: save in datastore
-    const handleSave = () => {
-        alert('Save Data')
-    }
 
     return (
         <Modal position="middle">
