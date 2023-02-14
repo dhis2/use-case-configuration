@@ -13,7 +13,7 @@ const AuthWall = ({ children }) => {
 
     const handleSave = () => {
         mutate().then((response) =>
-            setDatastoreAccess(response.status === 'OK')
+            setDatastoreAccess(200 <= response.httpStatusCode && response.httpStatusCode < 300)
         )
     }
 
