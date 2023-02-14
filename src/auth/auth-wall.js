@@ -1,12 +1,23 @@
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useState } from 'react'
 import classes from '../App.module.css'
-import { FirstLaunchDialog } from '../components'
+import { AlertStack, FirstLaunchDialog } from '../components'
+import { useCreateDataStore } from '../hooks'
 import { useIsAuthorized } from './use-is-authorized'
 
 const AuthWall = ({ children }) => {
     const { hasAppAccess, hasNamespace } = useIsAuthorized()
+    const { mutate, error } = useCreateDataStore()
+    const [hasDatastoreAccess, setDatastoreAccess] = useState(hasNamespace)
+
+    const handleSave = () => {
+        mutate().then((response) =>
+            setDatastoreAccess(
+                200 <= response.httpStatusCode && response.httpStatusCode < 300
+            )
+        )
+    }
 
     if (!hasAppAccess) {
         return (
@@ -20,10 +31,11 @@ const AuthWall = ({ children }) => {
         )
     }
 
-    if (!hasNamespace) {
+    if (!hasDatastoreAccess) {
         return (
             <>
-                <FirstLaunchDialog />
+                {error && <AlertStack error={error} message={error} />}
+                <FirstLaunchDialog handleSave={handleSave} />
             </>
         )
     }
