@@ -1,0 +1,11 @@
+.sidebarItem {
+    background-color: var(--colors-grey200);
+}
+
+.sidebarItem:hover {
+    background-color: var(--colors-grey400);
+}
+
+.sidebarItemActive {
+    background-color: var(--colors-grey400);
+}
