@@ -18,7 +18,11 @@ export const SaveAlert = ({ error, success, message }) => {
 }
 
 SaveAlert.propTypes = {
-    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.object]),
+    error: PropTypes.oneOfType([
+        PropTypes.bool,
+        PropTypes.string,
+        PropTypes.object,
+    ]),
     success: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     message: PropTypes.string,
 }
