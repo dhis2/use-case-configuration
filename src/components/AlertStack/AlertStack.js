@@ -18,8 +18,20 @@ export const AlertStack = ({ error, success, warning, message }) => (
 )
 
 AlertStack.propTypes = {
-    error: PropTypes.string,
-    success: PropTypes.string,
-    warning: PropTypes.string,
+    error: PropTypes.oneOfType([
+        PropTypes.bool,
+        PropTypes.string,
+        PropTypes.object,
+    ]),
+    success: PropTypes.oneOfType([
+        PropTypes.bool,
+        PropTypes.string,
+        PropTypes.object,
+    ]),
+    warning: PropTypes.oneOfType([
+        PropTypes.bool,
+        PropTypes.string,
+        PropTypes.object,
+    ]),
     message: PropTypes.string,
 }

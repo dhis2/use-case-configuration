@@ -23,6 +23,10 @@ SaveAlert.propTypes = {
         PropTypes.string,
         PropTypes.object,
     ]),
-    success: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+    success: PropTypes.oneOfType([
+        PropTypes.bool,
+        PropTypes.string,
+        PropTypes.object,
+    ]),
     message: PropTypes.string,
 }

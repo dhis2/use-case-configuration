@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react'
 import { Page } from '../../components'
 import { useGetDataStore, useUpdateUseCases } from '../../hooks'
 import AddConfiguration from './AddConfiguration'
+import { UseCaseTable } from './UseCaseList'
 
 const TITLE = i18n.t('Configure Program')
 const DESCRIPTION = i18n.t('Configure Program according to a specific type')
@@ -26,7 +27,7 @@ export const StockConfiguration = () => {
             setInitialList(dataStoreToUseCaseList)
             setCurrentList(dataStoreToUseCaseList)
         }
-    }, [stockUseCases])
+    }, [stockUseCases, data])
 
     /* Enable save button if the use cases list changes */
     useEffect(() => {
@@ -38,7 +39,7 @@ export const StockConfiguration = () => {
     }, [useCasesList])
 
     const saveData = async () => {
-        await mutate({ settings: stockUseCases })
+        await mutate({ settings: useCasesList })
     }
 
     return (
@@ -52,14 +53,13 @@ export const StockConfiguration = () => {
             error={error}
             success={data}
         >
-            <div>
+            <>
                 <AddConfiguration
                     useCases={useCasesList}
                     handleUseCases={setCurrentList}
                 />
-
-                <div> summary Table </div>
-            </div>
+                <UseCaseTable list={useCasesList} />
+            </>
         </Page>
     )
 }

@@ -16,7 +16,11 @@ export const FooterButton = ({ handleSave, disabled, success, error }) => (
 FooterButton.propTypes = {
     handleSave: PropTypes.func,
     disabled: PropTypes.bool,
-    success: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+    success: PropTypes.oneOfType([
+        PropTypes.bool,
+        PropTypes.string,
+        PropTypes.object,
+    ]),
     error: PropTypes.oneOfType([
         PropTypes.bool,
         PropTypes.string,
