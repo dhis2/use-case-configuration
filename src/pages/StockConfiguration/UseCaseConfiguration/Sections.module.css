@@ -1,0 +1,33 @@
+.tabSectionTitle {
+    display: inline-block;
+    padding-bottom: var(--spacers-dp12);
+    font-size: var(--t16);
+    color: var(--colors-grey900);
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    margin: var(--spacers-dp24) 0
+}
+
+.tabs {
+    margin-bottom: var(--spacers-dp16)
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: var(--spacers-dp8) var(--spacers-dp24);
+    justify-content: space-around;
+    gap: var(--spacers-dp24);
+}
+
+.legendLabel {
+    display: inline-block;
+    padding-bottom: var(--spacers-dp12);
+    font-size: 15px;
+    color: var(--grey900);
+    font-weight: 500;
+}
+
+.mb16 {
+    margin-bottom: var(--spacers-dp16);
+}
