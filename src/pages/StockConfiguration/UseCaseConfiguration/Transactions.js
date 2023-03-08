@@ -53,6 +53,7 @@ const Transactions = ({ settings, handleSettings, element }) => {
                     inputWidth="400px"
                     label={i18n.t('Corrected Stock')}
                     name="stockCorrected"
+                    filterable={true}
                     options={element?.stockCorrected || []}
                     selected={settings.stockCorrected}
                     onChange={(e) => handleChange(e, 'stockCorrected')}

@@ -51,6 +51,7 @@ const General = ({ settings, handleSettings }) => {
                 label={i18n.t('Program')}
                 inputWidth="400px"
                 name="programUid"
+                filterable={true}
                 options={programs}
                 selected={settings.programUid}
                 onChange={(e) => handleChange(e, 'programUid')}
