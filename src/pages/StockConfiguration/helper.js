@@ -6,6 +6,7 @@ export const defaultStockCase = () => ({
     programUid: '',
     description: '',
     programType: LOGISTICS,
+    itemCode: '',
     stockOnHand: '',
     itemDescription: '',
     distributedTo: '',
@@ -18,6 +19,7 @@ export const populateSettingsDataStore = (settings) => ({
     programUid: settings.programUid,
     description: settings.description,
     programType: settings.programType,
+    itemCode: settings.itemCode,
     stockOnHand: settings.stockOnHand,
     itemDescription: settings.itemDescription,
     transactions: [
@@ -54,6 +56,7 @@ export const validMandatoryFields = (settings) =>
             'programUid',
             'description',
             'programType',
+            'itemCode',
             'stockOnHand',
             'itemDescription',
             'distributedTo',
