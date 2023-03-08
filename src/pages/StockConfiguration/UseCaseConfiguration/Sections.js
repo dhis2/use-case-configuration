@@ -30,6 +30,8 @@ export const Sections = ({ settings, handleSettings, element }) => {
         },
     ]
 
+    const generalKey = findIndex(TabItems, { key: 'general-tab' })
+
     const transactionKey = findIndex(TabItems, { key: 'transactions-tab' })
 
     const CurrentSection = TabItems[selectedTab].content
@@ -62,6 +64,13 @@ export const Sections = ({ settings, handleSettings, element }) => {
                 />
 
                 <ButtonStrip end>
+                    {selectedTab !== generalKey && (
+                        <Button
+                            small
+                            onClick={() => setSelectTab(selectedTab - 1)}
+                            title={i18n.t('Prev')}
+                        />
+                    )}
                     {selectedTab !== transactionKey && (
                         <Button
                             small

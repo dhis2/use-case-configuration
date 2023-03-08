@@ -2,8 +2,8 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Input, Select } from '../../../components'
-import { useLogisticPrograms } from '../logisticHelper'
 import styles from './Sections.module.css'
+import SelectProgram from './SelectProgram'
 
 const programType = [
     {
@@ -13,8 +13,6 @@ const programType = [
 ]
 
 const General = ({ settings, handleSettings }) => {
-    const { programs } = useLogisticPrograms()
-
     const handleChange = (e, name) => {
         handleSettings({
             ...settings,
@@ -46,15 +44,9 @@ const General = ({ settings, handleSettings }) => {
                 onChange={handleChange}
             />
 
-            <Select
-                dense
-                label={i18n.t('Program')}
-                inputWidth="400px"
-                name="programUid"
-                filterable={true}
-                options={programs}
-                selected={settings.programUid}
-                onChange={(e) => handleChange(e, 'programUid')}
+            <SelectProgram
+                settings={settings}
+                handleSettings={handleSettings}
             />
         </div>
     )
