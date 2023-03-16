@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-03-01T03:10:46.263Z\n"
-"PO-Revision-Date: 2023-03-01T03:10:46.263Z\n"
+"POT-Creation-Date: 2023-03-09T11:46:00.958Z\n"
+"PO-Revision-Date: 2023-03-09T11:46:00.958Z\n"
 
 msgid ""
 "You don't have access to the Use Cases App. Contact a system administrator "
@@ -87,9 +87,6 @@ msgstr "Add a description of the current program or program type"
 msgid "Description"
 msgstr "Description"
 
-msgid "Program"
-msgstr "Program"
-
 msgid "General"
 msgstr "General"
 
@@ -99,8 +96,14 @@ msgstr "Details"
 msgid "Transactions"
 msgstr "Transactions"
 
+msgid "Prev"
+msgstr "Prev"
+
 msgid "Next"
 msgstr "Next"
+
+msgid "Program"
+msgstr "Program"
 
 msgid "Distributed"
 msgstr "Distributed"
@@ -117,8 +120,8 @@ msgstr "Corrected"
 msgid "Corrected Stock"
 msgstr "Corrected Stock"
 
-msgid "Discard"
-msgstr "Discard"
+msgid "Discarded"
+msgstr "Discarded"
 
 msgid "Discarded Stock"
 msgstr "Discarded Stock"
