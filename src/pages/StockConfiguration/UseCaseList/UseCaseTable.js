@@ -6,14 +6,17 @@ import {
     getElementByProgramId,
     getElementName,
     populateSettingsDataStore,
+    populateStockCase,
 } from '../helper'
 import { useLogisticPrograms } from '../logisticHelper'
+import { UseCaseConfiguration } from '../UseCaseConfiguration'
 import { TableActions } from './TableActions'
 
 export const UseCaseTable = ({ list, handleList }) => {
     const { programs } = useLogisticPrograms()
     const [configurationList, setConfiguration] = useState([])
     const [openDelete, setDelete] = useState(false)
+    const [openEdit, setEdit] = useState(false)
     const [selectedRow, setSelected] = useState({})
 
     useEffect(() => {
@@ -27,7 +30,12 @@ export const UseCaseTable = ({ list, handleList }) => {
     }, [list])
 
     const actions = {
-        onEdit: () => {},
+        onEdit: (e) => {
+            setSelected(
+                populateStockCase(getElementByProgramId(e, configurationList))
+            )
+            setEdit(true)
+        },
         onDelete: (e) => {
             setSelected(getElementByProgramId(e, configurationList))
             setDelete(true)
@@ -63,6 +71,16 @@ export const UseCaseTable = ({ list, handleList }) => {
                 onDelete={handleDelete}
                 elementName={selectedRow.name}
             />
+
+            {openEdit && (
+                <UseCaseConfiguration
+                    useCases={list}
+                    handleUseCases={handleList}
+                    handleOpen={setEdit}
+                    edit={true}
+                    selectedRow={selectedRow}
+                />
+            )}
         </>
     )
 }

@@ -9,7 +9,13 @@ import General from './General'
 import styles from './Sections.module.css'
 import Transactions from './Transactions'
 
-export const Sections = ({ settings, handleSettings, element }) => {
+export const Sections = ({
+    settings,
+    handleSettings,
+    element,
+    useCases,
+    edit,
+}) => {
     const [selectedTab, setSelectTab] = useState(0)
 
     const TabItems = [
@@ -61,6 +67,8 @@ export const Sections = ({ settings, handleSettings, element }) => {
                     settings={settings}
                     handleSettings={handleSettings}
                     element={element}
+                    useCases={useCases}
+                    edit={edit}
                 />
 
                 <ButtonStrip end>
@@ -88,4 +96,6 @@ Sections.propTypes = {
     settings: PropTypes.object,
     handleSettings: PropTypes.func,
     element: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+    useCases: PropTypes.array,
+    edit: PropTypes.bool,
 }

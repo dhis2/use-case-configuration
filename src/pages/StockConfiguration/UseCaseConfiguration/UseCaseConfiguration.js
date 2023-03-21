@@ -22,26 +22,40 @@ export const UseCaseConfiguration = ({
     useCases,
     handleUseCases,
     handleOpen,
+    edit = false,
+    selectedRow,
 }) => {
     const { programData } = useLogisticsElements()
     const [settings, setSettings] = useState(defaultStockCase())
-    const [validElement, setElement] = useState([])
     const [disableSave, setDisable] = useState()
+    const validElement = programData
+        ? findElementById(programData, settings.programUid)
+        : []
+
+    useEffect(() => {
+        if (edit) {
+            setSettings(selectedRow)
+        }
+    }, [edit])
 
     // validate if every field was filled
     useEffect(() => {
         setDisable(validMandatoryFields(settings) === true)
-        if (settings.programUid && programData) {
-            setElement(findElementById(programData, settings.programUid))
-        }
     }, [settings])
 
     const onSave = () => {
-        const dataStore = []
-        const currentElements = [...useCases, settings]
-        currentElements.forEach((element) =>
-            dataStore.push(populateSettingsDataStore(element))
+        const currentElements = edit
+            ? useCases.map((element) =>
+                  element.programUid === settings.programUid
+                      ? settings
+                      : element
+              )
+            : [...useCases, settings]
+
+        const dataStore = currentElements.map((element) =>
+            populateSettingsDataStore(element)
         )
+
         handleUseCases(dataStore)
         onCancel()
     }
@@ -59,6 +73,8 @@ export const UseCaseConfiguration = ({
                     settings={settings}
                     handleSettings={setSettings}
                     element={validElement}
+                    useCases={useCases}
+                    edit={edit}
                 />
             </ModalContent>
             <ModalActions>

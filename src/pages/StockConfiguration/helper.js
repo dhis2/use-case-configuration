@@ -26,19 +26,28 @@ export const populateSettingsDataStore = (settings) => ({
     transactions: [
         {
             sortedOrder: 0,
-            distributedTo: settings.distributedTo,
-            stockDistributed: settings.stockDistributed,
+            distributedTo:
+                settings.distributedTo ||
+                settings.transactions[0].distributedTo,
+            stockDistributed:
+                settings.stockDistributed ||
+                settings.transactions[0].stockDistributed,
             transactionType: DISTRIBUTED,
         },
         {
             sortedOrder: 1,
-            stockCorrected: settings.stockCorrected,
-            stockCount: settings.stockCount,
+            stockCorrected:
+                settings.stockCorrected ||
+                settings.transactions[1].stockCorrected,
+            stockCount:
+                settings.stockCount || settings.transactions[1].stockCount,
             transactionType: CORRECTED,
         },
         {
             sortedOrder: 2,
-            stockDiscarded: settings.stockDiscarded,
+            stockDiscarded:
+                settings.stockDiscarded ||
+                settings.transactions[2].stockDiscarded,
             transactionType: DISCARDED,
         },
     ],
@@ -71,3 +80,24 @@ export const validMandatoryFields = (settings) =>
 
 export const getElementName = (id, list) =>
     findElementById(list, id)?.['displayName' || 'name']
+
+export const populateStockCase = (settings) => ({
+    programUid: settings.programUid,
+    description: settings.description,
+    programType: settings.programType || 'logistics',
+    itemCode: settings.itemCode,
+    stockOnHand: settings.stockOnHand,
+    itemDescription: settings.itemDescription,
+    distributedTo:
+        settings.distributedTo || settings.transactions[0].distributedTo,
+    stockDistributed:
+        settings.stockDistributed || settings.transactions[0].stockDistributed,
+    stockCorrected:
+        settings.stockCorrected || settings.transactions[1].stockCorrected,
+    stockCount: settings.stockCount || settings.transactions[1].stockCount,
+    stockDiscarded:
+        settings.stockDiscarded || settings.transactions[2].stockDiscarded,
+})
+
+export const getElementByProgramId = (id, list) =>
+    list.find((e) => e.programUid === id)
