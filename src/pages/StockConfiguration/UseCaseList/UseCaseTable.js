@@ -1,13 +1,20 @@
 import isEmpty from 'lodash/isEmpty'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
-import { getElementName } from '../helper'
+import { DeleteElementDialog } from '../../../components'
+import {
+    getElementByProgramId,
+    getElementName,
+    populateSettingsDataStore,
+} from '../helper'
 import { useLogisticPrograms } from '../logisticHelper'
 import { TableActions } from './TableActions'
 
-export const UseCaseTable = ({ list }) => {
+export const UseCaseTable = ({ list, handleList }) => {
     const { programs } = useLogisticPrograms()
     const [configurationList, setConfiguration] = useState([])
+    const [openDelete, setDelete] = useState(false)
+    const [selectedRow, setSelected] = useState({})
 
     useEffect(() => {
         const updatedList = []
@@ -19,10 +26,29 @@ export const UseCaseTable = ({ list }) => {
         setConfiguration(updatedList)
     }, [list])
 
-    // TODO: create functions to handle edit and delete
     const actions = {
         onEdit: () => {},
-        onDelete: () => {},
+        onDelete: (e) => {
+            setSelected(getElementByProgramId(e, configurationList))
+            setDelete(true)
+        },
+    }
+
+    const handleDelete = () => {
+        const updatedList = configurationList.filter(
+            (element) => element.programUid !== selectedRow.programUid
+        )
+        const dataStore = updatedList.reduce((accumulator, element) => {
+            accumulator.push(populateSettingsDataStore(element))
+            return accumulator
+        }, [])
+        handleList(dataStore)
+        handleCloseDelete()
+    }
+
+    const handleCloseDelete = () => {
+        setSelected({})
+        setDelete(false)
     }
 
     return (
@@ -30,10 +56,18 @@ export const UseCaseTable = ({ list }) => {
             {!isEmpty(configurationList) && (
                 <TableActions actions={actions} rows={list} />
             )}
+
+            <DeleteElementDialog
+                open={openDelete}
+                onClose={handleCloseDelete}
+                onDelete={handleDelete}
+                elementName={selectedRow.name}
+            />
         </>
     )
 }
 
 UseCaseTable.propTypes = {
     list: PropTypes.array,
+    handleList: PropTypes.func,
 }
