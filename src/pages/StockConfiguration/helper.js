@@ -12,6 +12,7 @@ export const defaultStockCase = () => ({
     distributedTo: '',
     stockDistributed: '',
     stockCorrected: '',
+    stockCount: '',
     stockDiscarded: '',
 })
 
@@ -32,6 +33,7 @@ export const populateSettingsDataStore = (settings) => ({
         {
             sortedOrder: 1,
             stockCorrected: settings.stockCorrected,
+            stockCount: settings.stockCount,
             transactionType: CORRECTED,
         },
         {
@@ -61,6 +63,7 @@ export const validMandatoryFields = (settings) =>
             'distributedTo',
             'stockDistributed',
             'stockCorrected',
+            'stockCount',
             'stockDiscarded',
         ],
         settings

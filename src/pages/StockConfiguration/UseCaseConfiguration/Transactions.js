@@ -60,6 +60,17 @@ const Transactions = ({ settings, handleSettings, element }) => {
                     options={element?.stockCorrected || []}
                     selected={settings.stockCorrected}
                     onChange={(e) => handleChange(e, 'stockCorrected')}
+                    className={styles.mb16}
+                />
+                <Select
+                    dense
+                    inputWidth="400px"
+                    label={i18n.t('Stock Count')}
+                    name="stockCount"
+                    required={true}
+                    options={element?.stockCount || []}
+                    selected={settings.stockCount}
+                    onChange={(e) => handleChange(e, 'stockCount')}
                 />
             </FieldSet>
 
