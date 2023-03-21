@@ -19,6 +19,7 @@ const Details = ({ settings, handleSettings, element }) => {
                 inputWidth="400px"
                 label={i18n.t('Item Code')}
                 name="itemCode"
+                required={true}
                 options={element?.itemCode || []}
                 selected={settings.itemCode}
                 onChange={(e) => handleChange(e, 'itemCode')}
@@ -29,6 +30,7 @@ const Details = ({ settings, handleSettings, element }) => {
                 inputWidth="400px"
                 label={i18n.t('Item Description')}
                 name="itemDescription"
+                required={true}
                 options={element?.itemDescription || []}
                 selected={settings.itemDescription}
                 onChange={(e) => handleChange(e, 'itemDescription')}
@@ -39,6 +41,7 @@ const Details = ({ settings, handleSettings, element }) => {
                 inputWidth="400px"
                 label={i18n.t('Stock on Hand')}
                 name="stockOnHand"
+                required={true}
                 options={element?.stockOnHand || []}
                 selected={settings.stockOnHand}
                 onChange={(e) => handleChange(e, 'stockOnHand')}

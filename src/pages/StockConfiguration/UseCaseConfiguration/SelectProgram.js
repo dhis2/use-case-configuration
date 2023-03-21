@@ -25,6 +25,7 @@ const SelectProgram = ({ settings, handleSettings }) => {
             inputWidth="400px"
             name={program}
             filterable={true}
+            required={true}
             options={programs}
             selected={settings[program]}
             onChange={handleChange}

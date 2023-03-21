@@ -54,7 +54,6 @@ export const validMandatoryFields = (settings) =>
     !validateObjectByProperty(
         [
             'programUid',
-            'description',
             'programType',
             'itemCode',
             'stockOnHand',
