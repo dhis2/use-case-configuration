@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { AppContext } from './app-context'
 
-// TODO: other program fields if needed
 const query = {
     me: {
         resource: 'me',
@@ -19,7 +18,13 @@ const query = {
         resource: 'programs',
         params: {
             paging: false,
-            fields: ['id', 'displayName'],
+            fields: [
+                'id',
+                'displayName',
+                'programType',
+                'programStages[id,repeatable,autoGenerateEvent,programStageDataElements[dataElement]]',
+                'programTrackedEntityAttributes[id,valueType,trackedEntityAttribute]',
+            ],
         },
     },
 }

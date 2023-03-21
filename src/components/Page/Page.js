@@ -2,6 +2,7 @@ import { CenteredContent, CircularLoader, ComponentCover } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { FooterButton } from './FooterButton'
 import styles from './Page.module.css'
 
 export const Page = ({
@@ -12,6 +13,10 @@ export const Page = ({
     loading = false,
     dataTest,
     transparent = false,
+    handleSave,
+    disabled = true,
+    error,
+    success,
 }) => (
     <div
         className={cx(styles.container, {
@@ -35,6 +40,12 @@ export const Page = ({
                 </div>
             )}
             {children}
+            <FooterButton
+                handleSave={handleSave}
+                disabled={disabled}
+                error={error}
+                success={success}
+            />
         </div>
     </div>
 )
@@ -48,4 +59,16 @@ Page.propTypes = {
     limitWidth: PropTypes.bool,
     loading: PropTypes.bool,
     transparent: PropTypes.bool,
+    handleSave: PropTypes.func,
+    disabled: PropTypes.bool,
+    error: PropTypes.oneOfType([
+        PropTypes.bool,
+        PropTypes.string,
+        PropTypes.object,
+    ]),
+    success: PropTypes.oneOfType([
+        PropTypes.bool,
+        PropTypes.string,
+        PropTypes.object,
+    ]),
 }

@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-02-14T13:08:30.415Z\n"
-"PO-Revision-Date: 2023-02-14T13:08:30.415Z\n"
+"POT-Creation-Date: 2023-03-09T11:46:00.958Z\n"
+"PO-Revision-Date: 2023-03-09T11:46:00.958Z\n"
 
 msgid ""
 "You don't have access to the Use Cases App. Contact a system administrator "
@@ -14,6 +14,15 @@ msgid ""
 msgstr ""
 "You don't have access to the Use Cases App. Contact a system administrator "
 "to request access."
+
+msgid "Configuration was successfully saved"
+msgstr "Configuration was successfully saved"
+
+msgid "Add {{element}}"
+msgstr "Add {{element}}"
+
+msgid "Save"
+msgstr "Save"
 
 msgid "First time setup"
 msgstr "First time setup"
@@ -57,16 +66,80 @@ msgstr "Configure Program"
 msgid "Configure Program according to a specific type"
 msgstr "Configure Program according to a specific type"
 
-msgid "Hello {{name}}"
-msgstr "Hello {{name}}"
+msgid "Item Code"
+msgstr "Item Code"
 
-msgid "Welcome to DHIS2!"
-msgstr "Welcome to DHIS2!"
+msgid "Item Description"
+msgstr "Item Description"
 
-msgctxt "CASES name space"
-msgid ""
-"currently you have {{authorities}} authorities and {{dataStore}} access to "
-"datastore USE"
-msgstr ""
-"currently you have {{authorities}} authorities and {{dataStore}} access to "
-"datastore USE_CASES name space"
+msgid "Stock on Hand"
+msgstr "Stock on Hand"
+
+msgid "Logistics"
+msgstr "Logistics"
+
+msgid "Program Types"
+msgstr "Program Types"
+
+msgid "Add a description of the current program or program type"
+msgstr "Add a description of the current program or program type"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "General"
+msgstr "General"
+
+msgid "Details"
+msgstr "Details"
+
+msgid "Transactions"
+msgstr "Transactions"
+
+msgid "Prev"
+msgstr "Prev"
+
+msgid "Next"
+msgstr "Next"
+
+msgid "Program"
+msgstr "Program"
+
+msgid "Distributed"
+msgstr "Distributed"
+
+msgid "Distributed to"
+msgstr "Distributed to"
+
+msgid "Distributed Stock"
+msgstr "Distributed Stock"
+
+msgid "Corrected"
+msgstr "Corrected"
+
+msgid "Corrected Stock"
+msgstr "Corrected Stock"
+
+msgid "Discarded"
+msgstr "Discarded"
+
+msgid "Discarded Stock"
+msgstr "Discarded Stock"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "Program name"
+msgstr "Program name"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Actions"
+msgstr "Actions"

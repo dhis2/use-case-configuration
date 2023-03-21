@@ -1,0 +1,3 @@
+export const DISTRIBUTED = 'DISTRIBUTED'
+export const CORRECTED = 'CORRECTED'
+export const DISCARDED = 'DISCARDED'
