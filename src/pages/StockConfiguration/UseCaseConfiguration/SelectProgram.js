@@ -1,19 +1,15 @@
 import i18n from '@dhis2/d2-i18n'
-import find from 'lodash/find'
-import reject from 'lodash/reject'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Input, Select } from '../../../components'
-import { defaultStockCase, getElementName } from '../helper'
+import { defaultStockCase, getElementName, getUnusedPrograms } from '../helper'
 import { useLogisticPrograms } from '../logisticHelper'
 
 const program = 'programUid'
 
 const SelectProgram = ({ settings, handleSettings, useCases, disabled }) => {
     const { programs } = useLogisticPrograms()
-    const programList = programs
-        ? reject(programs, (item) => find(useCases, { programUid: item.id }))
-        : []
+    const programList = programs && getUnusedPrograms(programs, useCases)
     const name = disabled && getElementName(settings.programUid, programs)
 
     const handleChange = (e) => {

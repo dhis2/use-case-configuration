@@ -1,3 +1,5 @@
+import find from 'lodash/find'
+import reject from 'lodash/reject'
 import uniq from 'lodash/uniq'
 import { CORRECTED, DISCARDED, DISTRIBUTED, LOGISTICS } from '../../shared'
 import { validateObjectByProperty } from '../../utils'
@@ -101,3 +103,6 @@ export const populateStockCase = (settings) => ({
 
 export const getElementByProgramId = (id, list) =>
     list.find((e) => e.programUid === id)
+
+export const getUnusedPrograms = (programList, programsUsed) =>
+    reject(programList, (item) => find(programsUsed, { programUid: item.id }))

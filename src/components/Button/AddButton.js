@@ -5,13 +5,14 @@ import React from 'react'
 import { Button } from './Button'
 import styles from './Button.module.css'
 
-export const AddButton = ({ onClick, element }) => (
+export const AddButton = ({ onClick, element, disabled }) => (
     <ButtonStrip>
         <Button
             small
-            classNane={styles.marginTB24}
+            className={styles.marginTB24}
             title={i18n.t('Add {{element}}', { element: element })}
             onClick={onClick}
+            disabled={disabled}
         />
     </ButtonStrip>
 )
@@ -19,4 +20,5 @@ export const AddButton = ({ onClick, element }) => (
 AddButton.propTypes = {
     onClick: PropTypes.func.isRequired,
     element: PropTypes.string,
+    disabled: PropTypes.bool,
 }
