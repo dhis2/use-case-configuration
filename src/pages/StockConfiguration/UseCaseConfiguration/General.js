@@ -12,7 +12,7 @@ const programType = [
     },
 ]
 
-const General = ({ settings, handleSettings }) => {
+const General = ({ settings, handleSettings, useCases, edit }) => {
     const handleChange = (e, name) => {
         handleSettings({
             ...settings,
@@ -30,6 +30,7 @@ const General = ({ settings, handleSettings }) => {
                 options={programType}
                 selected={settings.programType}
                 onChange={(e) => handleChange(e, 'programType')}
+                disabled={edit}
             />
 
             <Input
@@ -47,6 +48,8 @@ const General = ({ settings, handleSettings }) => {
             <SelectProgram
                 settings={settings}
                 handleSettings={handleSettings}
+                useCases={useCases}
+                disabled={edit}
             />
         </div>
     )
@@ -55,6 +58,8 @@ const General = ({ settings, handleSettings }) => {
 General.propTypes = {
     settings: PropTypes.object,
     handleSettings: PropTypes.func,
+    useCases: PropTypes.array,
+    edit: PropTypes.bool,
 }
 
 export default General

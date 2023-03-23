@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-03-09T11:46:00.958Z\n"
-"PO-Revision-Date: 2023-03-09T11:46:00.958Z\n"
+"POT-Creation-Date: 2023-03-22T19:18:48.350Z\n"
+"PO-Revision-Date: 2023-03-22T19:18:48.350Z\n"
 
 msgid ""
 "You don't have access to the Use Cases App. Contact a system administrator "
@@ -23,6 +23,18 @@ msgstr "Add {{element}}"
 
 msgid "Save"
 msgstr "Save"
+
+msgid "Delete logistic configuration"
+msgstr "Delete logistic configuration"
+
+msgid "Are you sure you want to delete {{name}} configuration?"
+msgstr "Are you sure you want to delete {{name}} configuration?"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Delete"
+msgstr "Delete"
 
 msgid "First time setup"
 msgstr "First time setup"
@@ -59,6 +71,12 @@ msgstr "Configuration"
 
 msgid "Something went wrong while saving the default configuration"
 msgstr "Something went wrong while saving the default configuration"
+
+msgid "All programs to be configured are already in use"
+msgstr "All programs to be configured are already in use"
+
+msgid "Add Program"
+msgstr "Add Program"
 
 msgid "Configure Program"
 msgstr "Configure Program"
@@ -120,20 +138,17 @@ msgstr "Corrected"
 msgid "Corrected Stock"
 msgstr "Corrected Stock"
 
+msgid "Stock Count"
+msgstr "Stock Count"
+
 msgid "Discarded"
 msgstr "Discarded"
 
 msgid "Discarded Stock"
 msgstr "Discarded Stock"
 
-msgid "Cancel"
-msgstr "Cancel"
-
 msgid "Edit"
 msgstr "Edit"
-
-msgid "Delete"
-msgstr "Delete"
 
 msgid "Program name"
 msgstr "Program name"

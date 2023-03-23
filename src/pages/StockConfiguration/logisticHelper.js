@@ -6,6 +6,7 @@ import {
     NUMBER,
     TEXT,
     WITH_REGISTRATION,
+    ZERO_POSITIVE_INTEGER,
 } from '../../shared'
 import { flatArray } from './helper'
 import { useDataElements, useTEA } from './query'
@@ -78,6 +79,7 @@ export const useLogisticsElements = () => {
         distributedTo,
         stockDistributed,
         stockCorrected,
+        stockCount,
         stockDiscarded,
     } = getDataElementType(dataElement)
 
@@ -109,6 +111,7 @@ export const useLogisticsElements = () => {
         const distributedToList = []
         const stockDistributedList = []
         const stockCorrectedList = []
+        const stockCountList = []
         const stockDiscardedList = []
 
         if (itemCode && itemDescription) {
@@ -123,6 +126,7 @@ export const useLogisticsElements = () => {
             distributedTo &&
             stockDistributed &&
             stockCorrected &&
+            stockCount &&
             stockDiscarded
         ) {
             dataElements.forEach((element) => {
@@ -130,6 +134,7 @@ export const useLogisticsElements = () => {
                 findSaveElement(element, distributedTo, distributedToList)
                 findSaveElement(element, stockDistributed, stockDistributedList)
                 findSaveElement(element, stockCorrected, stockCorrectedList)
+                findSaveElement(element, stockCount, stockCountList)
                 findSaveElement(element, stockDiscarded, stockDiscardedList)
             })
         }
@@ -144,6 +149,7 @@ export const useLogisticsElements = () => {
             distributedTo: distributedToList,
             stockDistributed: stockDistributedList,
             stockCorrected: stockCorrectedList,
+            stockCount: stockCountList,
             stockDiscarded: stockDiscardedList,
         })
         return accumulator
@@ -157,6 +163,7 @@ export const useLogisticsElements = () => {
         distributedTo,
         stockDistributed,
         stockCorrected,
+        stockCount,
         stockDiscarded,
     }
 }
@@ -173,6 +180,7 @@ const getDataElementType = (elements) => {
         [NUMBER]: 'stockOnHand',
         [TEXT]: 'distributedTo',
         [INTEGER_POSITIVE]: ['stockDistributed', 'stockDiscarded'],
+        [ZERO_POSITIVE_INTEGER]: 'stockCount',
     }
 
     const data =
@@ -204,6 +212,7 @@ const getDataElementType = (elements) => {
                 distributedTo: [],
                 stockDistributed: [],
                 stockCorrected: [],
+                stockCount: [],
                 stockDiscarded: [],
             }
         )
@@ -213,6 +222,7 @@ const getDataElementType = (elements) => {
         distributedTo: data?.distributedTo,
         stockDistributed: data?.stockDistributed,
         stockCorrected: data?.stockCorrected,
+        stockCount: data?.stockCount,
         stockDiscarded: data?.stockDiscarded,
     }
 }

@@ -26,6 +26,7 @@ const Transactions = ({ settings, handleSettings, element }) => {
                     inputWidth="400px"
                     label={i18n.t('Distributed to')}
                     name="distributedTo"
+                    required={true}
                     options={element?.distributedTo || []}
                     selected={settings.distributedTo}
                     onChange={(e) => handleChange(e, 'distributedTo')}
@@ -36,6 +37,7 @@ const Transactions = ({ settings, handleSettings, element }) => {
                     inputWidth="400px"
                     label={i18n.t('Distributed Stock')}
                     name="stockDistributed"
+                    required={true}
                     options={element?.stockDistributed || []}
                     selected={settings.stockDistributed}
                     onChange={(e) => handleChange(e, 'stockDistributed')}
@@ -54,9 +56,21 @@ const Transactions = ({ settings, handleSettings, element }) => {
                     label={i18n.t('Corrected Stock')}
                     name="stockCorrected"
                     filterable={true}
+                    required={true}
                     options={element?.stockCorrected || []}
                     selected={settings.stockCorrected}
                     onChange={(e) => handleChange(e, 'stockCorrected')}
+                    className={styles.mb16}
+                />
+                <Select
+                    dense
+                    inputWidth="400px"
+                    label={i18n.t('Stock Count')}
+                    name="stockCount"
+                    required={true}
+                    options={element?.stockCount || []}
+                    selected={settings.stockCount}
+                    onChange={(e) => handleChange(e, 'stockCount')}
                 />
             </FieldSet>
 
@@ -71,6 +85,7 @@ const Transactions = ({ settings, handleSettings, element }) => {
                     inputWidth="400px"
                     label={i18n.t('Discarded Stock')}
                     name="stockDiscarded"
+                    required={true}
                     options={element?.stockDiscarded || []}
                     selected={settings.stockDiscarded}
                     onChange={(e) => handleChange(e, 'stockDiscarded')}

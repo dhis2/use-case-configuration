@@ -1,14 +1,16 @@
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Select } from '../../../components'
-import { defaultStockCase } from '../helper'
+import { Input, Select } from '../../../components'
+import { defaultStockCase, getElementName, getUnusedPrograms } from '../helper'
 import { useLogisticPrograms } from '../logisticHelper'
 
 const program = 'programUid'
 
-const SelectProgram = ({ settings, handleSettings }) => {
+const SelectProgram = ({ settings, handleSettings, useCases, disabled }) => {
     const { programs } = useLogisticPrograms()
+    const programList = programs && getUnusedPrograms(programs, useCases)
+    const name = disabled && getElementName(settings.programUid, programs)
 
     const handleChange = (e) => {
         handleSettings({
@@ -19,22 +21,40 @@ const SelectProgram = ({ settings, handleSettings }) => {
     }
 
     return (
-        <Select
-            dense
-            label={i18n.t('Program')}
-            inputWidth="400px"
-            name={program}
-            filterable={true}
-            options={programs}
-            selected={settings[program]}
-            onChange={handleChange}
-        />
+        <>
+            {disabled ? (
+                <Input
+                    dense
+                    label={i18n.t('Program')}
+                    inputWidth="400px"
+                    name={program}
+                    required={true}
+                    value={settings.name || name}
+                    onChange={handleChange}
+                    disabled={disabled}
+                />
+            ) : (
+                <Select
+                    dense
+                    label={i18n.t('Program')}
+                    inputWidth="400px"
+                    name={program}
+                    filterable={true}
+                    required={true}
+                    options={programList}
+                    selected={settings[program]}
+                    onChange={handleChange}
+                />
+            )}
+        </>
     )
 }
 
 SelectProgram.propTypes = {
     settings: PropTypes.object,
     handleSettings: PropTypes.func,
+    useCases: PropTypes.array,
+    disabled: PropTypes.bool,
 }
 
 export default SelectProgram

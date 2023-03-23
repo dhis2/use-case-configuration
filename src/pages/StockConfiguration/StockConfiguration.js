@@ -21,13 +21,13 @@ export const StockConfiguration = () => {
     useEffect(() => {
         if (!isNil(stockUseCases)) {
             const dataStoreToUseCaseList = []
-            stockUseCases.forEach((config) =>
-                dataStoreToUseCaseList.push(config)
+            stockUseCases.forEach(
+                (config) => dataStoreToUseCaseList.push(config) //populateStockCase
             )
             setInitialList(dataStoreToUseCaseList)
             setCurrentList(dataStoreToUseCaseList)
         }
-    }, [stockUseCases, data])
+    }, [stockUseCases])
 
     /* Enable save button if the use cases list changes */
     useEffect(() => {
@@ -36,10 +36,11 @@ export const StockConfiguration = () => {
                 ? setDisable(false)
                 : setDisable(true)
         }
-    }, [useCasesList])
+    }, [useCasesList, initialUseCasesList])
 
     const saveData = async () => {
         await mutate({ settings: useCasesList })
+        setInitialList(useCasesList)
     }
 
     return (
@@ -58,7 +59,7 @@ export const StockConfiguration = () => {
                     useCases={useCasesList}
                     handleUseCases={setCurrentList}
                 />
-                <UseCaseTable list={useCasesList} />
+                <UseCaseTable list={useCasesList} handleList={setCurrentList} />
             </>
         </Page>
     )
