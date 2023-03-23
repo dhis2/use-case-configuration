@@ -27,7 +27,7 @@ export const populateSettingsDataStore = (settings) => ({
     itemDescription: settings.itemDescription,
     transactions: [
         {
-            sortedOrder: 0,
+            sortOrder: 0,
             distributedTo:
                 settings.distributedTo ||
                 settings.transactions[0].distributedTo,
@@ -37,7 +37,7 @@ export const populateSettingsDataStore = (settings) => ({
             transactionType: DISTRIBUTED,
         },
         {
-            sortedOrder: 1,
+            sortOrder: 1,
             stockCorrected:
                 settings.stockCorrected ||
                 settings.transactions[1].stockCorrected,
@@ -46,7 +46,7 @@ export const populateSettingsDataStore = (settings) => ({
             transactionType: CORRECTED,
         },
         {
-            sortedOrder: 2,
+            sortOrder: 2,
             stockDiscarded:
                 settings.stockDiscarded ||
                 settings.transactions[2].stockDiscarded,
