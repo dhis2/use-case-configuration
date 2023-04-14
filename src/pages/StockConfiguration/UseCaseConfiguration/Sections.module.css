@@ -15,7 +15,7 @@
 .container {
     display: flex;
     flex-direction: column;
-    margin: var(--spacers-dp8) var(--spacers-dp24);
+    margin: var(--spacers-dp8) 0;
     justify-content: space-around;
     gap: var(--spacers-dp24);
 }
@@ -30,4 +30,8 @@
 
 .mb16 {
     margin-bottom: var(--spacers-dp16);
+}
+
+.btnContainer :last-child:empty {
+    margin-left: 0 !important;
 }
