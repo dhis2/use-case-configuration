@@ -71,7 +71,7 @@ export const Sections = ({
                     edit={edit}
                 />
 
-                <ButtonStrip end>
+                <ButtonStrip end className={styles.btnContainer}>
                     {selectedTab !== generalKey && (
                         <Button
                             small

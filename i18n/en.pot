@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-03-22T19:18:48.350Z\n"
-"PO-Revision-Date: 2023-03-22T19:18:48.350Z\n"
+"POT-Creation-Date: 2023-04-14T14:50:49.183Z\n"
+"PO-Revision-Date: 2023-04-14T14:50:49.183Z\n"
 
 msgid ""
 "You don't have access to the Use Cases App. Contact a system administrator "
@@ -146,6 +146,9 @@ msgstr "Discarded"
 
 msgid "Discarded Stock"
 msgstr "Discarded Stock"
+
+msgid "Done"
+msgstr "Done"
 
 msgid "Edit"
 msgstr "Edit"
