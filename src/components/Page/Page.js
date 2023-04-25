@@ -29,7 +29,7 @@ export const Page = ({
             <h1 className={styles.title}>{title}</h1>
             <p className={styles.desc}>{desc}</p>
         </header>
-        <div className={styles.content}>
+        <div>
             {!!loading && (
                 <div className={styles.loading}>
                     <ComponentCover translucent>

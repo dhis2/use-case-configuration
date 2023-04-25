@@ -87,7 +87,7 @@ export const UseCaseConfiguration = ({
                     <Button
                         onClick={onSave}
                         primary
-                        title={i18n.t('Save')}
+                        title={i18n.t('Done')}
                         disabled={disableSave}
                     />
                 </ButtonStrip>
