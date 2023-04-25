@@ -1,1 +1,1 @@
-export * from './WarningBox'
+export * from './ErrorBox'
