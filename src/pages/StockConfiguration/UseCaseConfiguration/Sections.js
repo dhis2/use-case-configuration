@@ -2,8 +2,9 @@ import i18n from '@dhis2/d2-i18n'
 import { ButtonStrip, TabBar, Tab } from '@dhis2/ui'
 import findIndex from 'lodash/findIndex'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from '../../../components'
+import { validMandatoryFieldSection } from '../helper'
 import Details from './Details'
 import General from './General'
 import styles from './Sections.module.css'
@@ -17,6 +18,7 @@ export const Sections = ({
     edit,
 }) => {
     const [selectedTab, setSelectTab] = useState(0)
+    const [disabledNext, setDisable] = useState(true)
 
     const TabItems = [
         {
@@ -42,6 +44,21 @@ export const Sections = ({
 
     const CurrentSection = TabItems[selectedTab].content
 
+    const handleDisableTab = (index) =>
+        index === selectedTab
+            ? false
+            : index === 0 || index === selectedTab - 1
+            ? false
+            : index === selectedTab + 2
+            ? true
+            : disabledNext
+
+    useEffect(() => {
+        setDisable(
+            validMandatoryFieldSection(settings, TabItems[selectedTab].key)
+        )
+    }, [settings, selectedTab])
+
     return (
         <>
             <div className={styles.tabs}>
@@ -51,7 +68,7 @@ export const Sections = ({
                             key={index}
                             onClick={() => setSelectTab(index)}
                             selected={index === selectedTab}
-                            disabled={index !== selectedTab}
+                            disabled={handleDisableTab(index)}
                         >
                             {label}
                         </Tab>
@@ -84,6 +101,7 @@ export const Sections = ({
                             small
                             onClick={() => setSelectTab(selectedTab + 1)}
                             title={i18n.t('Next')}
+                            disabled={disabledNext}
                         />
                     )}
                 </ButtonStrip>

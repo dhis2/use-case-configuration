@@ -106,3 +106,17 @@ export const getElementByProgramId = (id, list) =>
 
 export const getUnusedPrograms = (programList, programsUsed) =>
     reject(programList, (item) => find(programsUsed, { programUid: item.id }))
+
+export const propertiesSection = {
+    'general-tab': ['programUid', 'programType'],
+    'details-tab': ['itemCode', 'itemDescription', 'stockOnHand'],
+    'transactions-tab': [
+        'distributedTo',
+        'stockDistributed',
+        'stockCorrected',
+        'stockCount',
+        'stockDiscarded',
+    ],
+}
+export const validMandatoryFieldSection = (settings, section) =>
+    !validateObjectByProperty(propertiesSection[section], settings)
