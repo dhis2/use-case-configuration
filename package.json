@@ -1,6 +1,6 @@
 {
     "name": "use-case-configuration",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "UiO <milagros@dhis2.org>",
     "description": "",
     "license": "BSD-3-Clause",
@@ -14,11 +14,12 @@
         "format": "d2-style apply"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^10.1.6",
+        "@dhis2/cli-app-scripts": "^10.3.9",
         "@dhis2/cli-style": "^10.4.2",
         "@dhis2/cli-utils-cypress": "^9.0.2"
     },
     "dependencies": {
-        "@dhis2/app-runtime": "^3.7.0"
+        "@dhis2/app-runtime": "^3.7.0",
+        "@dhis2/d2-i18n": "^1.1.1"
     }
 }
