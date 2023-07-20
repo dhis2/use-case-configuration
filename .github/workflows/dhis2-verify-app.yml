@@ -41,5 +41,8 @@ jobs:
             - uses: c-hive/gha-yarn-cache@v1
             - run: yarn install --frozen-lockfile
 
+            - name: Generate translations
+              run: yarn d2-app-scripts i18n generate
+
             - name: Test
               run: yarn d2-app-scripts test
