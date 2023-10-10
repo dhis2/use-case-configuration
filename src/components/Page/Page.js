@@ -17,6 +17,7 @@ export const Page = ({
     disabled = true,
     error,
     success,
+    handleReset,
 }) => (
     <div
         className={cx(styles.container, {
@@ -45,6 +46,7 @@ export const Page = ({
                 disabled={disabled}
                 error={error}
                 success={success}
+                handleReset={handleReset}
             />
         </div>
     </div>
@@ -59,6 +61,7 @@ Page.propTypes = {
     limitWidth: PropTypes.bool,
     loading: PropTypes.bool,
     transparent: PropTypes.bool,
+    handleReset: PropTypes.func,
     handleSave: PropTypes.func,
     disabled: PropTypes.bool,
     error: PropTypes.oneOfType([
