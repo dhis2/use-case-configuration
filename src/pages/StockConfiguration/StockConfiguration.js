@@ -2,7 +2,7 @@ import i18n from '@dhis2/d2-i18n'
 import isEqual from 'lodash/isEqual'
 import isNil from 'lodash/isNil'
 import React, { useState, useEffect } from 'react'
-import { Page } from '../../components'
+import { Page, EraseValues } from '../../components'
 import { useGetDataStore, useUpdateUseCases } from '../../hooks'
 import AddConfiguration from './AddConfiguration'
 import { UseCaseTable } from './UseCaseList'
@@ -43,6 +43,10 @@ export const StockConfiguration = () => {
         setInitialList(useCasesList)
     }
 
+    const resetSettings = () => {
+        setCurrentList([])
+    }
+
     return (
         <Page
             title={TITLE}
@@ -53,6 +57,7 @@ export const StockConfiguration = () => {
             disabled={disable}
             error={error}
             success={data}
+            handleReset={resetSettings}
         >
             <>
                 <AddConfiguration
@@ -60,6 +65,7 @@ export const StockConfiguration = () => {
                     handleUseCases={setCurrentList}
                 />
                 <UseCaseTable list={useCasesList} handleList={setCurrentList} />
+                <EraseValues />
             </>
         </Page>
     )

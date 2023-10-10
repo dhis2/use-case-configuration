@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-04-25T10:52:53.056Z\n"
-"PO-Revision-Date: 2023-04-25T10:52:53.056Z\n"
+"POT-Creation-Date: 2023-10-10T12:26:40.540Z\n"
+"PO-Revision-Date: 2023-10-10T12:26:40.540Z\n"
 
 msgid "Access denied"
 msgstr "Access denied"
@@ -46,6 +46,19 @@ msgstr "Cancel"
 msgid "Delete"
 msgstr "Delete"
 
+msgid "Erase all settings"
+msgstr "Erase all settings"
+
+msgid ""
+"This action will remove all settings. Are you sure you want to erase all "
+"content and settings?"
+msgstr ""
+"This action will remove all settings. Are you sure you want to erase all "
+"content and settings?"
+
+msgid "Erase"
+msgstr "Erase"
+
 msgid "First time setup"
 msgstr "First time setup"
 
@@ -78,6 +91,9 @@ msgstr "Set defaults and save"
 
 msgid "Configuration"
 msgstr "Configuration"
+
+msgid "Reset all values to default"
+msgstr "Reset all values to default"
 
 msgid "Something went wrong while saving the default configuration"
 msgstr "Something went wrong while saving the default configuration"
