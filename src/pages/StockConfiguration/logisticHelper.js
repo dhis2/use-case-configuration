@@ -1,9 +1,7 @@
 import uniq from 'lodash/uniq'
 import { useAppContext } from '../../app-context'
 import {
-    INTEGER,
     INTEGER_POSITIVE,
-    NUMBER,
     TEXT,
     WITH_REGISTRATION,
     ZERO_POSITIVE_INTEGER,
@@ -177,10 +175,13 @@ const findSaveElement = (element, list, saveList) => {
 
 const getDataElementType = (elements) => {
     const valueTypeMap = {
-        [NUMBER]: 'stockOnHand',
         [TEXT]: 'distributedTo',
         [INTEGER_POSITIVE]: ['stockDistributed', 'stockDiscarded'],
-        [ZERO_POSITIVE_INTEGER]: 'stockCount',
+        [ZERO_POSITIVE_INTEGER]: [
+            'stockCount',
+            'stockOnHand',
+            'stockCorrected',
+        ],
     }
 
     const data =
@@ -197,13 +198,6 @@ const getDataElementType = (elements) => {
                     } else {
                         result[targetArrays].push(element)
                     }
-                }
-                if (
-                    valueType === INTEGER ||
-                    valueType === INTEGER_POSITIVE ||
-                    valueType === NUMBER
-                ) {
-                    result.stockCorrected.push(element)
                 }
                 return result
             },
