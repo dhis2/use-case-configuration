@@ -3,6 +3,7 @@ import { FieldSet, Legend } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Select } from '../../../components'
+import { handleElement } from './helper'
 import styles from './Sections.module.css'
 
 const Transactions = ({ settings, handleSettings, element }) => {
@@ -58,7 +59,11 @@ const Transactions = ({ settings, handleSettings, element }) => {
                     filterable={true}
                     required={true}
                     options={element?.stockCorrected || []}
-                    selected={settings.stockCorrected}
+                    selected={handleElement(
+                        element,
+                        settings.stockCorrected,
+                        'stockCorrected'
+                    )}
                     onChange={(e) => handleChange(e, 'stockCorrected')}
                     className={styles.mb16}
                 />

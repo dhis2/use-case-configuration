@@ -2,6 +2,7 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Select } from '../../../components'
+import { handleElement } from './helper'
 import styles from './Sections.module.css'
 
 const Details = ({ settings, handleSettings, element }) => {
@@ -43,7 +44,11 @@ const Details = ({ settings, handleSettings, element }) => {
                 name="stockOnHand"
                 required={true}
                 options={element?.stockOnHand || []}
-                selected={settings.stockOnHand}
+                selected={handleElement(
+                    element,
+                    settings.stockOnHand,
+                    'stockOnHand'
+                )}
                 onChange={(e) => handleChange(e, 'stockOnHand')}
             />
         </div>
