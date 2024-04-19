@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-10-10T12:26:40.540Z\n"
-"PO-Revision-Date: 2023-10-10T12:26:40.540Z\n"
+"POT-Creation-Date: 2024-04-19T03:08:05.592Z\n"
+"PO-Revision-Date: 2024-04-19T03:08:05.592Z\n"
 
 msgid "Access denied"
 msgstr "Access denied"
@@ -94,6 +94,9 @@ msgstr "Configuration"
 
 msgid "Reset all values to default"
 msgstr "Reset all values to default"
+
+msgid "v{{version}}"
+msgstr "v{{version}}"
 
 msgid "Something went wrong while saving the default configuration"
 msgstr "Something went wrong while saving the default configuration"
