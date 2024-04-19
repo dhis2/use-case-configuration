@@ -25,12 +25,13 @@
     font-weight: 500;
     color: var(--colors-grey900);
     margin: 0 0 var(--spacers-dp4) 0;
+    display: inline;
 }
 
 .desc {
     font-size: 14px;
     color: var(--colors-grey700);
-    margin: 0;
+    margin: var(--spacers-dp8) 0;
     line-height: 19px;
 }
 
@@ -43,4 +44,8 @@
     background: transparent;
     border: none;
     padding: 0;
+}
+
+.tagVersion {
+    margin: 0 10px;
 }
