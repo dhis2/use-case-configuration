@@ -2,7 +2,7 @@ import i18n from '@dhis2/d2-i18n'
 import isEqual from 'lodash/isEqual'
 import isNil from 'lodash/isNil'
 import React, { useState, useEffect } from 'react'
-import { Page, EraseValues } from '../../components'
+import { Page, EraseValues, Warning } from '../../components'
 import { useGetDataStore, useUpdateUseCases } from '../../hooks'
 import AddConfiguration from './AddConfiguration'
 import { UseCaseTable } from './UseCaseList'
@@ -60,6 +60,7 @@ export const StockConfiguration = () => {
             handleReset={resetSettings}
         >
             <>
+                <Warning />
                 <AddConfiguration
                     useCases={useCasesList}
                     handleUseCases={setCurrentList}
