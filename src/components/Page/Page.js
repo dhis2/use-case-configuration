@@ -1,4 +1,5 @@
-import { CenteredContent, CircularLoader, ComponentCover } from '@dhis2/ui'
+import i18n from '@dhis2/d2-i18n'
+import { CenteredContent, CircularLoader, ComponentCover, Tag } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -18,6 +19,7 @@ export const Page = ({
     error,
     success,
     handleReset,
+    version,
 }) => (
     <div
         className={cx(styles.container, {
@@ -28,6 +30,11 @@ export const Page = ({
     >
         <header className={styles.header}>
             <h1 className={styles.title}>{title}</h1>
+            {version && (
+                <Tag className={styles.tagVersion}>
+                    {i18n.t('v{{version}}', { version: version })}
+                </Tag>
+            )}
             <p className={styles.desc}>{desc}</p>
         </header>
         <div>
@@ -74,4 +81,5 @@ Page.propTypes = {
         PropTypes.string,
         PropTypes.object,
     ]),
+    version: PropTypes.string,
 }
