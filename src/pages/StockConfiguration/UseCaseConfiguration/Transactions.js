@@ -1,12 +1,29 @@
 import i18n from '@dhis2/d2-i18n'
 import { FieldSet, Legend } from '@dhis2/ui'
+import isEmpty from 'lodash/isEmpty'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { Select } from '../../../components'
-import { handleElement } from './helper'
+import { handleElement, validationDEText } from './helper'
 import styles from './Sections.module.css'
 
 const Transactions = ({ settings, handleSettings, element }) => {
+    const stockCorrectedValue = settings.stockCorrected
+
+    const validStockCorrected = useMemo(
+        () => handleElement(element, stockCorrectedValue, 'stockCorrected'),
+        [element, stockCorrectedValue]
+    )
+
+    useEffect(() => {
+        if (isEmpty(validStockCorrected)) {
+            handleSettings({
+                ...settings,
+                stockCorrected: '',
+            })
+        }
+    }, [validStockCorrected])
+
     const handleChange = (e, name) => {
         handleSettings({
             ...settings,
@@ -58,12 +75,10 @@ const Transactions = ({ settings, handleSettings, element }) => {
                     name="stockCorrected"
                     filterable={true}
                     required={true}
+                    error={isEmpty(validStockCorrected)}
+                    validationText={validationDEText}
                     options={element?.stockCorrected || []}
-                    selected={handleElement(
-                        element,
-                        settings.stockCorrected,
-                        'stockCorrected'
-                    )}
+                    selected={validStockCorrected}
                     onChange={(e) => handleChange(e, 'stockCorrected')}
                     className={styles.mb16}
                 />

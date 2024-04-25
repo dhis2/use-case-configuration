@@ -1,11 +1,28 @@
 import i18n from '@dhis2/d2-i18n'
+import isEmpty from 'lodash/isEmpty'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { Select } from '../../../components'
-import { handleElement } from './helper'
+import { handleElement, validationDEText } from './helper'
 import styles from './Sections.module.css'
 
 const Details = ({ settings, handleSettings, element }) => {
+    const stockOnHandValue = settings.stockOnHand
+
+    const validStockOnHand = useMemo(
+        () => handleElement(element, stockOnHandValue, 'stockOnHand'),
+        [element, stockOnHandValue]
+    )
+
+    useEffect(() => {
+        if (isEmpty(validStockOnHand)) {
+            handleSettings({
+                ...settings,
+                stockOnHand: '',
+            })
+        }
+    }, [validStockOnHand])
+
     const handleChange = (e, name) => {
         handleSettings({
             ...settings,
@@ -43,12 +60,10 @@ const Details = ({ settings, handleSettings, element }) => {
                 label={i18n.t('Stock on Hand')}
                 name="stockOnHand"
                 required={true}
+                error={isEmpty(validStockOnHand)}
+                validationText={validationDEText}
                 options={element?.stockOnHand || []}
-                selected={handleElement(
-                    element,
-                    settings.stockOnHand,
-                    'stockOnHand'
-                )}
+                selected={validStockOnHand}
                 onChange={(e) => handleChange(e, 'stockOnHand')}
             />
         </div>
