@@ -111,6 +111,9 @@ msgstr ""
 msgid "Reset all values to default"
 msgstr "Reset all values to default"
 
+msgid "v{{version}}"
+msgstr "v{{version}}"
+
 msgid "Something went wrong while saving the default configuration"
 msgstr "Something went wrong while saving the default configuration"
 

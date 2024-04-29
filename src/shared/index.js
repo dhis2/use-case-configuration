@@ -1,4 +1,5 @@
 export * from './dataStore'
+export * from './info'
 export * from './logisticsType'
 export * from './program'
 export * from './valueType'

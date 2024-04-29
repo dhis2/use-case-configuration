@@ -4,6 +4,7 @@ import isNil from 'lodash/isNil'
 import React, { useState, useEffect } from 'react'
 import { Page, EraseValues, Warning } from '../../components'
 import { useGetDataStore, useUpdateUseCases } from '../../hooks'
+import { infoDefault } from '../../shared'
 import AddConfiguration from './AddConfiguration'
 import { UseCaseTable } from './UseCaseList'
 
@@ -58,6 +59,7 @@ export const StockConfiguration = () => {
             error={error}
             success={data}
             handleReset={resetSettings}
+            version={infoDefault.webappVersion}
         >
             <>
                 <Warning />
