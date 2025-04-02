@@ -13,8 +13,6 @@ import styles from './FirstLaunchDialog.module.css'
 
 export const FirstLaunchDialog = ({ handleSave }) => {
     const { baseUrl } = useConfig()
-    const path = '/dhis-web-commons-about/redirect.action'
-    const initialUrl = `${baseUrl}${path}`
 
     return (
         <Modal position="middle">
@@ -41,7 +39,7 @@ export const FirstLaunchDialog = ({ handleSave }) => {
             <ModalActions>
                 <ButtonStrip end>
                     <Button>
-                        <a href={initialUrl} className={styles.button_redirect}>
+                        <a href={baseUrl} className={styles.button_redirect}>
                             {i18n.t('Exit, do not apply settings')}
                         </a>
                     </Button>
